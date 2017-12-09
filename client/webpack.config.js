@@ -7,6 +7,9 @@
          filename: 'bundle.js',
          sourcePrefix: ''
      },
+     amd: {
+       toUrlUndefined: true
+     },
      module: {
          unknownContextCritical : false,
          loaders: [{
@@ -17,8 +20,8 @@
              test: /\.css$/,
              loader: 'style-loader!css-loader'
            }, {
-             test: /(\.eot|\.woff2|\.woff|\.ttf|\.svg|\.png)/,
-             loader: 'file-loader'
+             test: /\.(eot|woff2|woff|ttf|png|gif|jpg|jpeg|svg|xml|json)$/,
+             loader: 'url-loader'
            }]
      }
  }
