@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import Cesium from 'cesium';
+//import Cesium from 'cesium';
+import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
 
 class App extends Component {
   componentDidMount() {
-    var viewer = new Cesium.Viewer('cesiumContainer');
+//console.log(this.cesiumContainer)
+    var viewer = new Viewer(this.cesiumContainer);
+
   }
 
   render() {
     return (
       <div className="App">
         <div className="col-sm-9">
-          Hello
+          <div id="cesiumContainer" ref={ element => this.cesiumContainer = element }/>
         </div>
         <div className="col-sm-3">
           Hello
