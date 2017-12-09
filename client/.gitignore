@@ -1,21 +1,42 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# dependencies
-/node_modules
-
-# testing
-/coverage
-
-# production
-/build
-
-# misc
 .DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/node_modules
+/packages/*/node_modules
+*.log
+*.cache
+/build
+/.eslintcache
+/browser.js
+/browser-polyfill.js
+/runtime.js
+coverage
+dist
+/.package.json
+package-lock.json
+/packages/babel-runtime/core-js/**/*.js
+!/packages/babel-runtime/core-js/map.js
+/packages/babel-runtime/helpers/*.js
+!/packages/babel-runtime/helpers/toArray.js
+!/packages/babel-runtime/helpers/temporalRef.js
+/packages/babel-runtime/helpers/builtin/*.js
+!/packages/babel-runtime/helpers/builtin/toArray.js
+!/packages/babel-runtime/helpers/builtin/temporalRef.js
+/packages/babel-runtime/helpers/builtin/es6/*.js
+!/packages/babel-runtime/helpers/builtin/es6/toArray.js
+!/packages/babel-runtime/helpers/builtin/es6/temporalRef.js
+/packages/babel-runtime/helpers/es6/*.js
+!/packages/babel-runtime/helpers/es6/toArray.js
+!/packages/babel-runtime/helpers/es6/temporalRef.js
+/packages/babel-register/test/.babel
+/packages/babel-cli/test/tmp
+/packages/babel-node/test/tmp
+/packages/*/lib
+.nyc_output
+/babel.sublime-workspace
+packages/babel-standalone/babel.js
+packages/babel-standalone/babel.min.js
+packages/babel-preset-env-standalone/babel-preset-env.js
+packages/babel-preset-env-standalone/babel-preset-env.min.js
+/codemods/*/lib
+/codemods/*/node_modules
+/packages/babylon/build
+.idea/
