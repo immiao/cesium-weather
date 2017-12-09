@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-//import Cesium from 'cesium';
 import Viewer from "cesium/Source/Widgets/Viewer/Viewer";
 
 class App extends Component {
   componentDidMount() {
-//console.log(this.cesiumContainer)
     var viewer = new Viewer(this.cesiumContainer);
-
   }
 
   render() {
