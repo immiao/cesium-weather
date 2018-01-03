@@ -5,6 +5,17 @@ import WeatherInfo from "./WeatherInfo";
 class App extends Component {
   componentDidMount() {
     var viewer = new Viewer(this.cesiumContainer);
+    fetch("http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=" + process.env.API_KEY).then(function(response){
+      return response.blob();
+    }).then(function(blob){
+      var reader = new FileReader();
+      reader.addEventListener("loadend", function() {
+        console.log(reader.result)
+      });
+      reader.readAsText(blob);
+    });
+
+    console.log(process.env.API_KEY)
   }
 
   render() {
