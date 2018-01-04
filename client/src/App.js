@@ -12,28 +12,31 @@ class App extends Component {
 
   componentDidMount() {
     var viewer = new Viewer(this.cesiumContainer);
+  }
+  
+  onLoad() {
+    this.setState({result: reader.result});
+  }
+
+  onSearch(cityName) {
     fetch("http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=" + process.env.API_KEY).then(function(response){
       return response.blob();
     }).then(function(blob){
       var reader = new FileReader();
       reader.addEventListener("loadend", function() {
+        this.setState({result: reader.result});
         console.log(reader.result)
       });
       reader.readAsText(blob);
     });
-
-    console.log(process.env.API_KEY)
-  }
-  
-  onSearch() {
-    console.log('Search clicked')
+    console.log(cityName)
   }
 
   render() {
     var appStyle = {
       marginLeft: "30px"
     };
-
+    console.log(this.state.result)
     return (
       <div className="App" style={appStyle}>
         <div className="row">
