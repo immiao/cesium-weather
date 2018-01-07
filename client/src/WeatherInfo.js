@@ -7,6 +7,9 @@ class WeatherInfo extends Component {
     this.state = {
       inputFiled: ""
     };
+    this.pStyle = {
+      wordWrap: "break-word"
+    };
   }
   
   onSearch() {
@@ -18,11 +21,12 @@ class WeatherInfo extends Component {
   }
 
   render() {
+    
     return (
       <div>
         <input type="text" id="search" placeholder="Enter A City" onChange={this.onChange.bind(this)}/>
         <button type="button" onClick={this.onSearch.bind(this)}>Search</button>
-        <p>{this.props.result}</p>
+        <p style={this.pStyle}>{this.props.result}</p>
       </div>
     );
   }

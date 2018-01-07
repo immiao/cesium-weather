@@ -8,6 +8,9 @@ class App extends Component {
     this.state = {
       result: "result"
     };
+    this.appStyle = {
+      marginLeft: "30px"
+    };
   };
 
   componentDidMount() {
@@ -19,26 +22,20 @@ class App extends Component {
   }
 
   onSearch(cityName) {
-    fetch("http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=" + process.env.API_KEY).then(function(response){
+    fetch("http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + process.env.API_KEY).then(function(response){
       return response.blob();
-    }).then(function(blob){
+    }.bind(this)).then(function(blob){
       var reader = new FileReader();
       reader.addEventListener("loadend", function() {
         this.setState({result: reader.result});
-        console.log(reader.result)
-      });
+      }.bind(this));
       reader.readAsText(blob);
-    });
-    console.log(cityName)
+    }.bind(this));
   }
 
   render() {
-    var appStyle = {
-      marginLeft: "30px"
-    };
-    console.log(this.state.result)
     return (
-      <div className="App" style={appStyle}>
+      <div className="App" style={this.appStyle}>
         <div className="row">
           <div className="page-header">
             <h1>Cesium Real Time Weather</h1>
@@ -49,7 +46,7 @@ class App extends Component {
             </div>
             <div className="col-sm-3">
               <WeatherInfo
-                onSearch={this.onSearch}
+                onSearch={this.onSearch.bind(this)}
                 result={this.state.result}
                 />
             </div>
