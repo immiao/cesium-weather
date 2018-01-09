@@ -1,3 +1,7 @@
+### Screenshot
+
+![](images/cesium-weather.png)
+
 ### Installation
 
 ```
